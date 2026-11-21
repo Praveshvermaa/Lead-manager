@@ -92,7 +92,6 @@ The app will open at `http://localhost:5173`.
 | **MongoDB + Mongoose** | Document model fits a schema that may grow new fields; Mongoose adds validation and indexing with low ceremony |
 | **JWT (httpOnly cookies)** | Stateless auth; storing the token in an httpOnly cookie avoids XSS exposure compared to `localStorage` |
 | **bcryptjs** | Password hashing before storage |
-| **Zod** | Runtime request validation with precise error messages |
 | **cookie-parser** | Reads the JWT cookie on every request |
 
 ---
@@ -126,10 +125,4 @@ The app will open at `http://localhost:5173`.
 - **Rate limiting** — apply `express-rate-limit` to auth endpoints to prevent brute-force attacks.
 - **Email verification** — confirm the user's email address before activating their account.
 
-### Code quality
 
-- **End-to-end tests** — Playwright tests covering the create → update status → delete lead flow.
-- **API integration tests** — Vitest + Supertest for the Express routes.
-- **Error boundary** — a React `ErrorBoundary` to catch and display unexpected client-side errors gracefully.
-- **Optimistic UI updates** — update the local state immediately on status change instead of re-fetching, then roll back on error.
-- **Centralised API error handling** — an Axios response interceptor to catch 401s globally and redirect to login, instead of handling it per-component.
